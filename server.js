@@ -131,7 +131,7 @@ app.use((err, req, res, next) => {
 const connectDB = async () => {
   try {
     mongoose.connection.on('connected', () => console.log('DB Connected'));
-    await mongoose.connect('mongodb://localhost:27017/sampleDB');
+    await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB Connected Successfully');
   } catch (error) {
     console.log('MongoDB Connection Error:', error.message);
